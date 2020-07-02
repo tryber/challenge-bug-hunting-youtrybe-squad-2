@@ -22,19 +22,19 @@ class VideoPage extends Component {
 
   componentDidMount() {
     getVideoInfo(this.state.videoId)
-      .then((data) => this.setState({ videoInfo: data.items[0] }));
+      .then((data) => this.setState((state) => ({ ...state, videoInfo: data.items[0] })));
 
     getVideoComments(this.state.videoId)
-      .then((data) => this.setState({ videoComments: data.items }));
+      .then((data) => this.setState((state) => ({ ...state, videoComments: data.items })));
   }
 
   handleSelectedVideo(videoId) {
     this.setState({ videoId: videoId })
     getVideoInfo(this.state.videoId)
-      .then((data) => this.setState({ videoInfo: data.items[0] }));
+      .then((data) => this.setState((state) => ({ ...state, videoInfo: data.items[0] })));
 
     getVideoComments(this.state.videoId)
-      .then((data) => this.setState({ videoComments: data.items }));
+      .then((data) => this.setState((state) => ({ ...state, videoComments: data.items })));
     this.props.history.push(`/watch/${videoId}`);
   }
 
