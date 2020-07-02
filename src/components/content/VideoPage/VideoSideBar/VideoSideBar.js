@@ -11,7 +11,7 @@ class VideoSideBar extends Component {
     return (
       <Fragment>
         {relatedVideos.map((video) => (
-          <Fragment key={`${video.id.videoId}${Math.round(Math.random()*10000)}`}>
+          <Fragment key={`${video.id.videoId}${Math.round(Math.random() * 10000)}`}>
             <Link to={`/watch/${video.id.videoId}`} data-testid="selectedVideo">
               <div
                 className="suggested-video"
