@@ -41,22 +41,22 @@ class SearchResult extends Component {
   }
 
 
-render() {
-  const { data, error } = this.state;
-  if (data.length < 1) return (<div>Loading...</div>)
-  if (error.length) return (<div>{error}</div>)
+  render() {
+    const { data, error } = this.state;
+    if (data.length < 1) return (<div>Loading...</div>)
+    if (error.length) return (<div>{error}</div>)
 
-  return (
-    <div>
-      {data.map((item) => (
-        <Link className="thumbnail-card" key={item.etag} to={{
-          pathname: `/watch/${item.id.videoId}`,
-          state: { data }
-        }}><VideoCard video={item} /></Link>
-      ))}
-    </div>
-  );
-}
+    return (
+      <div>
+        {data.map((item) => (
+          <Link className="thumbnail-card" key={item.etag} to={{
+            pathname: `/watch/${item.id.videoId}`,
+            state: { data }
+          }}><VideoCard video={item} /></Link>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default SearchResult;
