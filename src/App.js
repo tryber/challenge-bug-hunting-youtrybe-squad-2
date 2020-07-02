@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 
 import './App.css';
 import './css/mainContents.css';
@@ -10,14 +11,18 @@ import SearchResult from './components/content/SearchResult';
 import NotFound from './components/content/NotFound';
 import InitialPage from './components/content/InitialPage';
 
+require('dotenv').config();
+
+const history = createBrowserHistory();
+
 class App extends Component {
   render() {
     return (
-      <Router> 
+      <Router history={history}> 
         <div className="App">
           <Header />
           <Switch>
-            <Route path="/"><InitialPage /></Route>
+            <Route exact path="/"><InitialPage /></Route>
             <Route
               exact path="/watch/:videoId"
               render={(props) => <VideoPage {...props} />}
