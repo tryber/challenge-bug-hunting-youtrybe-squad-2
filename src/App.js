@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import './App.css';

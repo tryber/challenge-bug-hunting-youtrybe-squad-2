@@ -30,7 +30,7 @@ class SearchBar extends Component {
           value={searchInput}
           id="search"
           placeholder="Search"
-          onChange={(e) => this.handleSearchInput(e)}
+          onChange={this.handleSearchInput}
         />
         <div className="search-btn">
           <Link
