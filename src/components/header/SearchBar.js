@@ -21,7 +21,7 @@ class SearchBar extends Component {
 
   render() {
     const { searchInput } = this.state;
-    
+
     return (
       <div className="searchbar">
         <input

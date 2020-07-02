@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
-import { createBrowserHistory } from "history";
+import { createBrowserHistory } from 'history';
 
 import './App.css';
 import './css/mainContents.css';
