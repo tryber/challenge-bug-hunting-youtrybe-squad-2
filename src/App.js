@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 
 import './App.css';
 import './css/mainContents.css';
@@ -13,30 +12,26 @@ import InitialPage from './components/content/InitialPage';
 
 require('dotenv').config();
 
-const history = createBrowserHistory();
-
-class App extends Component {
-  render() {
-    return (
-      <Router history={history}> 
-        <div className="App">
-          <Header />
-          <Switch>
-            <Route exact path="/"><InitialPage /></Route>
-            <Route
-              exact path="/watch/:videoId"
-              render={(props) => <VideoPage {...props} />}
-            />
-            <Route
-              exact path="/results/:searchParam"
-              render={(props) => <SearchResult {...props} />}
-            />
-            <Route path="*"><NotFound /></Route>
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
-};
+const App = () => (
+  <Router>
+    <div className='App'>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <InitialPage />
+        </Route>
+        <Route
+          exact
+          path='/watch/:videoId' render={props => <VideoPage {...props} />} />
+        <Route
+          exact
+          path='/results/:searchParam' render={props => <SearchResult {...props} />} />
+        <Route path='*'>
+          <NotFound />
+        </Route>
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;

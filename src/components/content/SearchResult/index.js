@@ -1,62 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard/VideoCard';
 
 import '../../../css/sideBar.css';
 import { searchVideos } from '../../../api/service';
 
-class SearchResult extends Component {
-  constructor(props) {
-    super(props);
+const SearchResult = props => {
+  const {
+    params: { searchParam },
+  } = props.match;
 
-    this.state = {
-      data: [],
-      error: '',
-    };
+  const [data, setData] = useState([]);
+  const [error, setError] = useState('');
 
-    this.updateData = this.updateData.bind(this);
-  }
+  useEffect(() => {
+    updateData(searchParam);
+  }, [searchParam]);
 
-  componentDidMount() {
-    const { params: { searchParam } } = this.props.match;
-    this.updateData(searchParam);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { params: { searchParam } } = this.props.match;
-
-    if (prevProps.match.params.searchParam !== searchParam) {
-      this.updateData(searchParam);
-    }
-  }
-
-  updateData(param) {
+  const updateData = param => {
     searchVideos(param)
-      .then((data) => {
-        const videosResults = data.items.filter((item) => item.id.kind !== 'youtube#channel');
-
-        this.setState({ data: videosResults });
+      .then(data => {
+        const videosResults = data.items.filter(item => item.id.kind !== 'youtube#channel');
+        setData(videosResults);
       })
-      .catch((error) => this.setState({ error: error }));
-  }
+      .catch(error => setError(error));
+  };
 
-
-  render() {
-    const { data, error } = this.state;
-    if (data.length < 1) return (<div>Loading...</div>)
-    if (error.length) return (<div>{error}</div>)
-
-    return (
-      <div>
-        {data.map((item) => (
-          <Link className="thumbnail-card" key={item.etag} to={{
+  if (data.length < 1) return <div>Loading...</div>;
+  if (error.length) return <div>{error}</div>;
+  return (
+    <div>
+      {data.map(item => (
+        <Link
+          className='thumbnail-card'
+          key={item.etag}
+          to={{
             pathname: `/watch/${item.id.videoId}`,
-            state: { data }
-          }}><VideoCard video={item} /></Link>
-        ))}
-      </div>
-    );
-  }
-}
+            state: { data },
+          }}
+        >
+          <VideoCard video={item} />
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 export default SearchResult;

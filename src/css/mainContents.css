@@ -63,18 +63,22 @@ main {
 .share-btn,
 .save-btn,
 .options-btn {
+  background-color: transparent;
+  border: 0;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
 .thumb-wrapper {
-  border-bottom: 2px solid #888;
+  border-bottom: 2px solid #888; 
   padding: 1.3rem 0;
 }
 
 .thumb-up-btn,
 .thumb-down-btn {
+  background-color: transparent;
+  border: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -84,4 +88,9 @@ main {
 .thumb-down-btn {
   margin-left: 1.4rem;
   margin-right: 0;
+}
+
+.thumb-reply {
+  background-color: transparent;
+  border: 0;
 }
