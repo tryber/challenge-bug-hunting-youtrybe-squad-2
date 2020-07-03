@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const VideoPlayerCommentsInfo = props => {
+const VideoPlayerCommentsInfo = (props) => {
   const { statisticsInfo } = props;
   return (
     <Fragment>

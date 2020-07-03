@@ -14,19 +14,21 @@ require('dotenv').config();
 
 const App = () => (
   <Router>
-    <div className='App'>
+    <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <InitialPage />
         </Route>
         <Route
           exact
-          path='/watch/:videoId' render={props => <VideoPage {...props} />} />
+          path="/watch/:videoId" render={(props) => <VideoPage {...props} />}
+        />
         <Route
           exact
-          path='/results/:searchParam' render={props => <SearchResult {...props} />} />
-        <Route path='*'>
+          path="/results/:searchParam" render={(props) => <SearchResult {...props} />}
+        />
+        <Route path="*">
           <NotFound />
         </Route>
       </Switch>

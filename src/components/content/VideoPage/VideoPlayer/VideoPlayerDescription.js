@@ -1,10 +1,10 @@
 import React from 'react';
 
-const VideoPlayerDescription = props => {
+const VideoPlayerDescription = (props) => {
   const { channelTitle, description, publishedAt } = props;
 
-  const formatDate = publishedAt => {
-    const dateObj = new Date(publishedAt);
+  const formatDate = (pa) => {
+    const dateObj = new Date(pa);
 
     const monthNames = [
       'January',

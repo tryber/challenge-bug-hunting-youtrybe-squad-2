@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../../../css/searchResult.css';
 
-const VideoCard = props => (
+const VideoCard = (props) => (
   <div className="suggested-video search-result">
     <div className="thumbnail">
       <img alt="thumbnail" src={props.video.snippet.thumbnails.medium.url} />

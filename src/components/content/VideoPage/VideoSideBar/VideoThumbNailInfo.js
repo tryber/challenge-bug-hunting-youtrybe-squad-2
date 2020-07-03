@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoThumbNailInfo = props => (
+const VideoThumbNailInfo = (props) => (
   <div className="thumbnail-info">
     <h2>{props.title}</h2>
     <div className="channel">{props.channel}</div>

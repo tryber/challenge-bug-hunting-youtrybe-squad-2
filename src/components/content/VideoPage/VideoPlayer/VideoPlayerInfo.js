@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoPlayerInfo = props => {
+const VideoPlayerInfo = (props) => {
   const { title, statisticsInfo } = props;
   return (
     <div data-testid="videoinfo" className="video-info">

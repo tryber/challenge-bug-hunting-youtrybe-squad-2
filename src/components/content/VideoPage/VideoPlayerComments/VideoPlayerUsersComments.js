@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 const VideoPlayerUsersComments = (props) => {
   const { videoComments } = props;
 
-  const formatDate = publishedAt => {
+  const formatDate = (publishedAt) => {
     const dateObj = new Date(publishedAt);
 
     const monthNames = [
@@ -32,7 +32,7 @@ const VideoPlayerUsersComments = (props) => {
   // authorProfileImageUrl
   return (
     <Fragment>
-      {videoComments.map(comment => (
+      {videoComments.map((comment) => (
         <div className="comment" key={comment.id}>
           <div className="comment-avatar">
             <i className="material-icons account-icon">account_circle</i>

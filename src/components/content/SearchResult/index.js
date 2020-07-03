@@ -5,32 +5,30 @@ import VideoCard from './VideoCard/VideoCard';
 import '../../../css/sideBar.css';
 import { searchVideos } from '../../../api/service';
 
-const SearchResult = props => {
-  const {
-    params: { searchParam },
-  } = props.match;
+const SearchResult = (props) => {
+  const { params: { searchParam } } = props.match;
 
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
-
+  
+  const updateData = (param) => {
+    searchVideos(param)
+      .then((response) => {
+        const videosResults = response.items.filter((item) => item.id.kind !== 'youtube#channel');
+        setData(videosResults);
+      })
+      .catch((response) => setError(response));
+  };
+  
   useEffect(() => {
     updateData(searchParam);
   }, [searchParam]);
-
-  const updateData = param => {
-    searchVideos(param)
-      .then(data => {
-        const videosResults = data.items.filter(item => item.id.kind !== 'youtube#channel');
-        setData(videosResults);
-      })
-      .catch(error => setError(error));
-  };
 
   if (data.length < 1) return <div>Loading...</div>;
   if (error.length) return <div>{error}</div>;
   return (
     <div>
-      {data.map(item => (
+      {data.map((item) => (
         <Link
           className="thumbnail-card"
           key={item.etag}
