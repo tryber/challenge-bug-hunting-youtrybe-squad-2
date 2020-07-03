@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../../../css/chanelInfo.css';
 
-const VideoPlayer = props => {
+const VideoPlayer = (props) => {
   const { embedId } = props;
   const playerURL = `https://www.youtube.com/embed/${embedId}`;
   return (
