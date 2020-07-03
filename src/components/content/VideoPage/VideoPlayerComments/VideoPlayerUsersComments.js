@@ -1,35 +1,10 @@
 import React, { Fragment } from 'react';
+import { formatDate } from '../../../../utils/formatDate';
 // import profileIcon from './../../../../assets/profile.jpg'
 
 const VideoPlayerUsersComments = (props) => {
   const { videoComments } = props;
 
-  const formatDate = (publishedAt) => {
-    const dateObj = new Date(publishedAt);
-
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    const month = monthNames[dateObj.getMonth()];
-    const day = dateObj.getUTCDate();
-    const year = dateObj.getUTCFullYear();
-
-    return `Published on ${month} ${day}, ${year}`;
-  };
-
-  // authorProfileImageUrl
   return (
     <Fragment>
       {videoComments.map((comment) => (

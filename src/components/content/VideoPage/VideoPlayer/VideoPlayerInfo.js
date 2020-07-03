@@ -13,18 +13,15 @@ const VideoPlayerInfo = (props) => {
               <i className="material-icons">thumb_up</i>
               <span className="thumbs-count">{statisticsInfo.likeCount}</span>
             </button>
-
             <button type="button" className="thumb-down-btn">
               <i className="material-icons">thumb_down</i>
               <span className="thumbs-count">{statisticsInfo.dislikeCount}</span>
             </button>
           </div>
-
           <button type="button" className="share-btn" href="#">
             <i className="material-icons">reply</i>
             <span>SHARE</span>
           </button>
-
           <button type="button" className="save-btn" href="#">
             <i className="material-icons">playlist_add</i>
             <span>SAVE</span>

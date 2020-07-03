@@ -1,32 +1,8 @@
 import React from 'react';
+import { formatDate } from '../../../../utils/formatDate'
 
 const VideoPlayerDescription = (props) => {
   const { channelTitle, description, publishedAt } = props;
-
-  const formatDate = (pa) => {
-    const dateObj = new Date(pa);
-
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    const month = monthNames[dateObj.getMonth()];
-    const day = dateObj.getUTCDate();
-    const year = dateObj.getUTCFullYear();
-
-    return `Published on ${month} ${day}, ${year}`;
-  };
 
   return (
     <section data-testid="channelinfo" className="channel-info">
