@@ -9,7 +9,7 @@ import { getVideoInfo, getVideoComments } from './../../../api/service';
 const VideoPage = (props) => {
   const [videoId, setVideoId] = useState(props.match.params.videoId);
   //  checar esse estado sendo passado por state.data location
-  const [relatedVideos, setRelatedVideos] = useState(props.location.state.data);
+  const [relatedVideos] = useState(props.location.state.data);
   const [videoInfo, setVideoInfo] = useState(null);
   const [videoComments, setVideoComments] = useState(null);
 
