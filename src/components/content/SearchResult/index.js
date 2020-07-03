@@ -45,7 +45,7 @@ const SearchResult = (props) => {
   return (
     <div>
       {data.map((item) => (
-        <Video item={item} data={data}/>
+        <Video item={item} data={data} />
       ))}
     </div>
   );
