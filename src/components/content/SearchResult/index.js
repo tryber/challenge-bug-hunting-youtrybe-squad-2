@@ -10,7 +10,7 @@ const SearchResult = (props) => {
 
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
-  
+
   const updateData = (param) => {
     searchVideos(param)
       .then((response) => {
@@ -19,7 +19,7 @@ const SearchResult = (props) => {
       })
       .catch((response) => setError(response));
   };
-  
+
   useEffect(() => {
     updateData(searchParam);
   }, [searchParam]);
