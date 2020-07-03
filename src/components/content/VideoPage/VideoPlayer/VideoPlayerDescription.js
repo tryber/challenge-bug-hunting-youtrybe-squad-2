@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '../../../../utils/formatDate'
+import formatDate from '../../../../utils/formatDate'
 
 const VideoPlayerDescription = (props) => {
   const { channelTitle, description, publishedAt } = props;

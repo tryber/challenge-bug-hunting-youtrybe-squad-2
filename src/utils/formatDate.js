@@ -1,4 +1,4 @@
-export const formatDate = (publishedAt) => {
+const formatDate = (publishedAt) => {
   const dateObj = new Date(publishedAt);
 
   const monthNames = [
@@ -22,3 +22,5 @@ export const formatDate = (publishedAt) => {
 
   return `Published on ${month} ${day}, ${year}`;
 };
+
+export default formatDate;

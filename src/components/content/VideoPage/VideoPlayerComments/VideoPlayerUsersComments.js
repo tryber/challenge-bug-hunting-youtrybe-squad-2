@@ -1,6 +1,26 @@
 import React, { Fragment } from 'react';
-import { formatDate } from '../../../../utils/formatDate';
+import formatDate from '../../../../utils/formatDate';
 // import profileIcon from './../../../../assets/profile.jpg'
+
+const BottomMenu = (props) => {
+  const { comment } = props;
+
+  return (
+    <div>
+      <button type="button" className="thumb-up-btn">
+        <i className="material-icons">thumb_up</i>
+        <span className="thumbs-count">{comment.snippet.topLevelComment.snippet.likeCount}</span>
+      </button>
+      <button type="button" className="thumb-up-btn">
+        <i className="material-icons">thumb_down</i>
+        <span className="thumbs-count"></span>
+      </button>
+      <button type="button" className="thumb-reply">
+        REPLY
+      </button>
+    </div>
+  );
+};
 
 const VideoPlayerUsersComments = (props) => {
   const { videoComments } = props;
@@ -18,19 +38,7 @@ const VideoPlayerUsersComments = (props) => {
               <span>{formatDate(comment.snippet.topLevelComment.snippet.publishedAt)}</span>
             </h3>
             <p>{comment.snippet.topLevelComment.snippet.textDisplay}</p>
-            <div>
-              <button type="button" className="thumb-up-btn">
-                <i className="material-icons">thumb_up</i>
-                <span className="thumbs-count">
-                  {comment.snippet.topLevelComment.snippet.likeCount}
-                </span>
-              </button>
-              <button type="button" className="thumb-up-btn">
-                <i className="material-icons">thumb_down</i>
-                <span className="thumbs-count"></span>
-              </button>
-              <button type="button" className="thumb-reply">REPLY</button>
-            </div>
+            <BottomMenu comment={comment} />
           </div>
         </div>
       ))}
