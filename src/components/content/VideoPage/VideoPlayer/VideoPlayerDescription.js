@@ -29,17 +29,17 @@ const VideoPlayerDescription = props => {
   };
 
   return (
-    <section data-testid='channelinfo' className='channel-info'>
-      <div className='avatar'>
+    <section data-testid="channelinfo" className="channel-info">
+      <div className="avatar">
         <div></div>
       </div>
-      <div className='description'>
+      <div className="description">
         <h2>{channelTitle}</h2>
         <h3>{formatDate(publishedAt)}</h3>
         <p>{description}</p>
-        <p className='show-more'>show more</p>
+        <p className="show-more">show more</p>
       </div>
-      <div className='subscribe'>
+      <div className="subscribe">
         <button>
           {' '}
           subscribe <span>293K</span>

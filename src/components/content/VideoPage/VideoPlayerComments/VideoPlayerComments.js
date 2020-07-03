@@ -7,7 +7,7 @@ import '../../../../css/comments.css';
 const VideoPlayerComments = (props) => {
   const { statisticsInfo, videoComments } = props;
   return (
-    <section data-testid='comments' className='comments'>
+    <section data-testid="comments" className="comments">
       <VideoPlayerCommentsInfo statisticsInfo={statisticsInfo} />
       <VideoPlayerUserComments videoComments={videoComments} />
     </section>

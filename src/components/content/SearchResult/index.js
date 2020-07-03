@@ -32,7 +32,7 @@ const SearchResult = props => {
     <div>
       {data.map(item => (
         <Link
-          className='thumbnail-card'
+          className="thumbnail-card"
           key={item.etag}
           to={{
             pathname: `/watch/${item.id.videoId}`,

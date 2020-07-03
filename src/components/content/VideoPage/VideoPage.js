@@ -24,7 +24,7 @@ const VideoPage = props => {
 
   return (
     <main>
-      <section className='player'>
+      <section className="player">
         <VideoPlayer embedId={videoId} />
         <VideoPlayerInfo statisticsInfo={videoInfo.statistics} title={videoInfo.snippet.title} />
         <VideoPlayerDescription
@@ -34,7 +34,7 @@ const VideoPage = props => {
         />
         <VideoPlayerComments statisticsInfo={videoInfo.statistics} videoComments={videoComments} />
       </section>
-      <section className='sidebar'>
+      <section className="sidebar">
         <VideoSideBar relatedVideos={relatedVideos} handleSelectedVideo={handleSelectedVideo} />
       </section>
     </main>
