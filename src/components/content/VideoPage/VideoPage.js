@@ -20,7 +20,7 @@ const VideoPage = (props) => {
   const handleSelectedVideo = (id) => setVideoId(id);
 
   if (!videoInfo || !videoComments) return <main></main>;
-  if(!relatedVideos.length) relatedVideos.push(videoInfo);
+  if (!relatedVideos.length) relatedVideos.push(videoInfo);
 
   return (
     <main>

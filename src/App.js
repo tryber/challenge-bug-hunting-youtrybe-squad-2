@@ -19,17 +19,17 @@ const App = () => (
       <div className="App">
         <Header />
         <Switch>
-            <Route exact path="/">
-              <InitialPage />
-            </Route>
-            <Route
-              exact
-              path="/watch/:videoId" render={(props) => <VideoPage {...props} />}
-            />
-            <Route
-              exact
-              path="/results/:searchParam" render={(props) => <SearchResult {...props} />}
-            />
+          <Route exact path="/">
+            <InitialPage />
+          </Route>
+          <Route
+            exact
+            path="/watch/:videoId" render={(props) => <VideoPage {...props} />}
+          />
+          <Route
+            exact
+            path="/results/:searchParam" render={(props) => <SearchResult {...props} />}
+          />
           <Route path="*">
             <NotFound />
           </Route>
