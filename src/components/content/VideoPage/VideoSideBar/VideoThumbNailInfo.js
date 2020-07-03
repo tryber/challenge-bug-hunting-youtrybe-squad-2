@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class VideoThumbNailInfo extends Component {
-  render() {
-    return (
-      <div className="thumbnail-info">
-        <h2>{this.props.title}</h2>
-        <div className="channel">{this.props.channel}</div>
-        <div className="views">792K views</div>
-      </div>
-    );
-  }
-}
+const VideoThumbNailInfo = (props) => (
+  <div className="thumbnail-info">
+    <h2>{props.title}</h2>
+    <div className="channel">{props.channel}</div>
+    <div className="views">792K views</div>
+  </div>
+);
 
 export default VideoThumbNailInfo;

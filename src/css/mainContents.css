@@ -64,6 +64,8 @@ main {
 .save-btn,
 .options-btn {
   align-items: center;
+  background-color: transparent;
+  border: 0;
   display: flex;
   justify-content: center;
 }
@@ -76,6 +78,8 @@ main {
 .thumb-up-btn,
 .thumb-down-btn {
   align-items: center;
+  background-color: transparent;
+  border: 0;
   display: flex;
   justify-content: space-between;
   margin-right: 1.4rem;
@@ -84,4 +88,9 @@ main {
 .thumb-down-btn {
   margin-left: 1.4rem;
   margin-right: 0;
+}
+
+.thumb-reply {
+  background-color: transparent;
+  border: 0;
 }
