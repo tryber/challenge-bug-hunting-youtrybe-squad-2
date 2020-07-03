@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard/VideoCard';
+import { VideoListContext } from '../../../contexts/VideoListProvider';
+
 
 import '../../../css/sideBar.css';
 import { searchVideos } from '../../../api/service';
 
 const Video = (props) => {
-  const { item, data } = props;
+  const { item } = props;
   return (
     <Link
       className="thumbnail-card"
-      key={item.etag}
-      to={{
-        pathname: `/watch/${item.id.videoId}`,
-        state: { data },
-      }}
+      to={`/watch/${item.id.videoId}`}
     >
       <VideoCard video={item} />
     </Link>
@@ -24,7 +22,7 @@ const Video = (props) => {
 const SearchResult = (props) => {
   const { params: { searchParam } } = props.match;
 
-  const [data, setData] = useState([]);
+  const { videoList: [data, setData] } = useContext(VideoListContext)
   const [error, setError] = useState('');
 
   const updateData = (param) => {
@@ -45,7 +43,7 @@ const SearchResult = (props) => {
   return (
     <div>
       {data.map((item) => (
-        <Video item={item} data={data} />
+        <Video item={item} key={item.etag} />
       ))}
     </div>
   );

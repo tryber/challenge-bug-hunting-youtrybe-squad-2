@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import VideoPage from '../components/content/VideoPage/VideoPage';
+import App from '../App';
 import mockSearchVideo from '../__mocks__/mockSearchVideo';
 import mockGetVideoInfo from '../__mocks__/mockGetVideoInfo';
 import mockGetVideoComments from '../__mocks__/mockGetVideoComments';
@@ -40,12 +40,7 @@ describe('Funcionalidades Componente Video Page', () => {
   it('Renderiza dados no vídeo na página', async () => {
     const randomVideoID = mockSearchVideo.items[1].id.videoId;
 
-    renderWithRouter(
-        <VideoPage
-          match={{ params: { videoId: randomVideoID } }}
-          location={{ state: { data: mockSearchVideo.items } }}
-        />
-    );
+    renderWithRouter(<App />, { route: `/watch/${randomVideoID}` });
 
     await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled());
     await waitFor(() => expect(api.getVideoComments).toHaveBeenCalled());
@@ -59,19 +54,13 @@ describe('Funcionalidades Componente Video Page', () => {
 
   it('Vídeo selecionado atualiza os dados do vídeo atual na página', async () => {
     const randomVideoID = mockSearchVideo.items[1].id.videoId;
-    const { history } = renderWithRouter(
-      <VideoPage
-        match={{ params: { videoId: randomVideoID } }}
-        location={{ state: { data: mockSearchVideo.items } }}
-      />,
-      { route: `/watch/${randomVideoID}` }
-    );
+    const { history } = renderWithRouter(<App />, { route: `/watch/${randomVideoID}` });
 
     await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled());
     await waitFor(() => expect(api.getVideoComments).toHaveBeenCalled());
     expect(history.location.pathname).toBe(`/watch/${randomVideoID}`);
 
-    fireEvent.click(screen.getAllByTestId('selectedVideo')[2]);
+    fireEvent.click(screen.getAllByTestId('selectedVideo')[0]);
     await waitFor(() => expect(api.getVideoInfo).toHaveBeenCalled());
     await waitFor(() => expect(api.getVideoComments).toHaveBeenCalled());
 

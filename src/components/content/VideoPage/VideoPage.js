@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import VideoPlayerDescription from './VideoPlayer/VideoPlayerDescription';
 import VideoPlayerInfo from './VideoPlayer/VideoPlayerInfo';
 import VideoPlayerComments from './VideoPlayerComments/VideoPlayerComments';
 import VideoSideBar from './VideoSideBar/VideoSideBar';
 import { getVideoInfo, getVideoComments } from './../../../api/service';
+import { VideoListContext } from '../../../contexts/VideoListProvider';
 
 const VideoPage = (props) => {
   const [videoId, setVideoId] = useState(props.match.params.videoId);
-  //  checar esse estado sendo passado por state.data location
-  const [relatedVideos] = useState(props.location.state.data);
+  const { videoList: [relatedVideos] } = useContext(VideoListContext);
   const [videoInfo, setVideoInfo] = useState(null);
   const [videoComments, setVideoComments] = useState(null);
 
@@ -17,10 +17,10 @@ const VideoPage = (props) => {
     getVideoInfo(videoId).then((data) => setVideoInfo(data.items[0]));
     getVideoComments(videoId).then((data) => setVideoComments(data.items));
   }, [videoId]);
-  console.log(videoInfo)
   const handleSelectedVideo = (id) => setVideoId(id);
 
   if (!videoInfo || !videoComments) return <main></main>;
+  if(!relatedVideos.length) relatedVideos.push(videoInfo);
 
   return (
     <main>

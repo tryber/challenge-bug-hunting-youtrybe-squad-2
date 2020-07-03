@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent, getByRole, waitFor } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import SearchResult from '../components/content/SearchResult/index';
 import App from '../App';
 import mockSearchVideo from '../__mocks__/mockSearchVideo';
 import mockGetVideoInfo from '../__mocks__/mockGetVideoInfo';
@@ -39,7 +38,7 @@ function renderWithRouter(ui, routeConfigs = {}) {
 
 describe('Funcionalidades Componente Search Result', () => {
   it('Renderiza uma lista de videos em cima da busca', async () => {
-    renderWithRouter(<SearchResult match={{ params: { searchParam: 'bugs' } }} />);
+    renderWithRouter(<App />, { route: '/results/bugs' });
     await waitFor(() => expect(api.searchVideos).toHaveBeenCalled());
     expect(screen.getAllByRole('link').length).toBeLessThan(mockSearchVideo.items.length);
   })
